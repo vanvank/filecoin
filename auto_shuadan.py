@@ -65,9 +65,15 @@ def auto_shuadan(hashs, miner_id, ask_id, duration):
 
 def main():
     go_cmd_path = get_go_filecoin_cmd_path()
-    miner_id='t2jxjdgvdevs7bl4dgzrxduqvzc4nuekdo2jfjdiq'
-    ask_id='6'
+    #### 1U 
+    #miner_id='t2jxjdgvdevs7bl4dgzrxduqvzc4nuekdo2jfjdiq'
+    #ask_id='6'
+    #duration='1440'
+    #### xueyuan
+    miner_id="t2vncxxefzpdfus7z5sxblqyugbfudltpgfbpcbli"
+    ask_id=''
     duration='1440'
+    #
     #path='/home/xl/sample_data/test.file'
     path='/tmp/300m.tar'
     hashs = import_data(path)
