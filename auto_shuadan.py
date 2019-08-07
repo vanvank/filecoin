@@ -36,7 +36,7 @@ def propose_storage(hash, miner_id, ask_id, duration):
         s = output.decode()
         print(s)
         DealID = re.search("\nDealID:(.*)",s).group(1).strip()
-        cmd="./dealid_status.sh %s" %DealID
+        cmd="./useful_scripts/dealid_status.sh %s" %DealID
         with open("log.dealid", "a+") as f:
             subprocess.Popen(cmd,stdout=f,shell=True)
             print("开始追踪DealID的状态 %s" %DealID)
