@@ -3,15 +3,7 @@ import os
 import subprocess
 import re
 
-#sample_data_dir='/home/xl/sample_data'
-#data=os.listdir(sample_data_dir)
-#hashs=[]
-#for i in data:
-#    hash=subprocess.check_output(['/home/xl/filecoin/go-filecoin','client','import',sample_data_dir+"/" + i])
-    #hashs.append(hash)
-#    hashs.append(bytes.decode(hash).strip())
-#a=bytes.decode(hashs[0]).strip()
-#print(hashs)
+
 def import_file(file_path):
     hash = subprocess.check_output(['/home/xl/filecoin/go-filecoin','client','import',file_path])
     return hash.decode().strip()
