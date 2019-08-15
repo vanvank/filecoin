@@ -7,6 +7,7 @@ import time
 
 def import_file(file_path):
     hash = subprocess.check_output(['/home/xl/filecoin/go-filecoin','client','import',file_path])
+    print(file_path)
     return hash.decode().strip()
 
 
