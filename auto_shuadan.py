@@ -2,6 +2,7 @@
 import os
 import subprocess
 import re
+import time
 
 
 def import_file(file_path):
@@ -40,6 +41,8 @@ def propose_storage(hash, miner_id, ask_id, duration):
         with open("log.dealid", "a+") as f:
             subprocess.Popen(cmd,stdout=f,shell=True)
             print("开始追踪DealID的状态 %s" %DealID)
+            print("半小时后刷第二单")
+            time.sleep(1800)
     except Exception as e:
         print("存数据过程中发生了一些错误:%s, 跳过存下一个数据" %e)
 
