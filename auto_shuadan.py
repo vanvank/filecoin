@@ -32,7 +32,8 @@ def get_go_filecoin_cmd_path():
 
 
 def propose_storage(hash, miner_id, ask_id, duration):
-    print("开始存%s" %hash)
+    t1=time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+    print("%s开始存%s" %(t1, hash))
     try:
         output = subprocess.check_output([get_go_filecoin_cmd_path(), 'client', 'propose-storage-deal', miner_id, hash, ask_id, duration])
         s = output.decode()
@@ -41,7 +42,8 @@ def propose_storage(hash, miner_id, ask_id, duration):
         cmd="./dealid_status.sh %s" %DealID
         with open("log.dealid", "a+") as f:
             subprocess.Popen(cmd,stdout=f,shell=True)
-            print("开始追踪DealID的状态 %s" %DealID)
+            t = time.strftime('%Y-%m-%d %H:%M:%S',time.localtime(time.time()))
+            print("%s开始追踪DealID的状态 %s" %(t,DealID))
             print("半小时后刷下一单")
             time.sleep(1800)
     except Exception as e:
@@ -53,21 +55,18 @@ def propose_storage(hash, miner_id, ask_id, duration):
 
 def auto_shuadan(hashs, miner_id, ask_id, duration):
     if isinstance(hashs, str):
-        print("is str")
+        #print("is str")
         propose_storage(hashs, miner_id, ask_id, duration)
     elif isinstance(hashs, list):
-        print("is dict")
+        #print("is dict")
         for hash in hashs:
             auto_shuadan(hash,miner_id, ask_id, duration)
     else:
         print("not str or dict")
 
 def main():
-    go_cmd_path = get_go_filecoin_cmd_path()
     #### 1U 
     #miner_id='t2jxjdgvdevs7bl4dgzrxduqvzc4nuekdo2jfjdiq'
-    #ask_id='6'
-    #duration='1440'
     #### xueyuan
     miner_id="t2vncxxefzpdfus7z5sxblqyugbfudltpgfbpcbli"
     ask_id=''
