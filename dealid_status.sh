@@ -14,6 +14,6 @@ do
     break
     else
       echo $(date) $1 maybe something wrong occured
-      sleep 3
+      sleep 60
     fi
 done
