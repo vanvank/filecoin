@@ -17,6 +17,6 @@ def gen_file(name, text, path):
         f.write(text)
     print("ok")
 
-def mass_gen(n):
+def mass_gen(n, path):
     for i in range(0,n):
-        gen_file(ran(8), ran(32), "abc")
+        gen_file(ran(8), ran(32), path)
