@@ -9,7 +9,7 @@ def ran(n):
     return salt
 
 
-def gen_files(name, text, path):
+def gen_file(name, text, path):
     if not os.path.exists(path):
         os.makedirs(path)
     filename = os.path.join(path, name + ".txt")
@@ -17,5 +17,6 @@ def gen_files(name, text, path):
         f.write(text)
     print("ok")
 
-for i in range(1,100):
-    gen_files(ran(8), ran(32), "abc")
+def mass_gen(n):
+    for i in range(0,n):
+        gen_file(ran(8), ran(32), "abc")
