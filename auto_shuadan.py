@@ -48,8 +48,8 @@ def propose_storage(hash, miner_id, ask_id, duration):
             time.sleep(1800)
     except Exception as e:
         print("存数据过程中发生了一些错误:%s, 跳过存下一个数据" %e)
-        print("等3分钟再刷下一单")
-        time.sleep(180)
+        print("等1分钟再刷下一单")
+        time.sleep(60)
 
 
 
